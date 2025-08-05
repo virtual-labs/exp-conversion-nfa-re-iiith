@@ -1,1 +1,1 @@
-## Experiment name
+## Conversion from NFA to RE
