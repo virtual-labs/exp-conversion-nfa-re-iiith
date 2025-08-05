@@ -1,5 +1,3 @@
-### Primary References
-
 1. **Hopcroft, J. E., Motwani, R., & Ullman, J. D.** (2006). *Introduction to Automata Theory, Languages, and Computation* (3rd ed.). Pearson Education.
    - Comprehensive coverage of NFA to regular expression conversion and state elimination algorithm
    - Chapter 3: Regular Expressions and Languages - detailed treatment of equivalence proofs
