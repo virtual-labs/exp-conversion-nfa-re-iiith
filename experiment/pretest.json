@@ -2,38 +2,157 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the fundamental relationship between Nondeterministic Finite Automata (NFAs) and Regular Expressions?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "NFAs are more powerful than regular expressions and can recognize some languages that regular expressions cannot",
+        "b": "Regular expressions are more powerful than NFAs and can describe languages that NFAs cannot accept",
+        "c": "NFAs and regular expressions have identical expressive power and can recognize exactly the same class of languages",
+        "d": "NFAs and regular expressions are unrelated computational models with different applications"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. NFAs and regular expressions are equivalent in computational power.",
+        "b": "Incorrect. Neither model is more powerful than the other; they are equivalent.",
+        "c": "Correct. NFAs and regular expressions are equivalent in computational power. Both models can recognize exactly the class of regular languages, meaning any language accepted by an NFA can be described by a regular expression, and vice versa. This fundamental equivalence is one of the key results in formal language theory.",
+        "d": "Incorrect. NFAs and regular expressions are closely related and can represent the same languages."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "In the state elimination algorithm, which types of states can be eliminated during the NFA to regular expression conversion process?",
+      "answers": {
+        "a": "Only the start state can be eliminated",
+        "b": "Only the accept states can be eliminated",
+        "c": "Only intermediate states (neither start nor accept states) can be eliminated",
+        "d": "Any state in the NFA can be eliminated at any time"
+      },
+      "explanations": {
+        "a": "Incorrect. The start state must be preserved as it defines the entry point.",
+        "b": "Incorrect. Accept states must be preserved as they define the exit points.",
+        "c": "Correct. During state elimination, only intermediate states can be removed. The start state and accept states must be preserved throughout the process because they define the entry and exit points of the automaton. The algorithm systematically removes intermediate states while redirecting their transitions to maintain the same language recognition.",
+        "d": "Incorrect. Start and accept states cannot be eliminated during the conversion process."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the primary purpose of the Kleene star operation (*) in regular expressions derived from NFAs?",
+      "answers": {
+        "a": "To represent single symbol transitions between states",
+        "b": "To handle self-loops and repetitive patterns in the original automaton",
+        "c": "To connect the start state to accept states",
+        "d": "To eliminate epsilon transitions from the NFA"
+      },
+      "explanations": {
+        "a": "Incorrect. Single symbol transitions are represented by the symbols themselves, not the Kleene star.",
+        "b": "Correct. The Kleene star (*) operation represents zero or more repetitions of a pattern. In NFA-to-regex conversion, it specifically handles self-loops on states being eliminated. When a state has a self-loop with label 'a', this becomes 'a*' in the resulting regular expression, allowing for zero or more repetitions of that transition.",
+        "c": "Incorrect. The Kleene star doesn't specifically connect start and accept states.",
+        "d": "Incorrect. Epsilon transitions are handled separately during the conversion process."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "When eliminating a state with both incoming transitions and a self-loop, how is the resulting regular expression constructed?",
+      "answers": {
+        "a": "incoming + outgoing (ignoring the self-loop)",
+        "b": "incoming + self-loop + outgoing",
+        "c": "incoming + self-loop* + outgoing",
+        "d": "self-loop* + incoming + outgoing"
+      },
+      "explanations": {
+        "a": "Incorrect. Self-loops must be included in the construction as they affect the language.",
+        "b": "Incorrect. This doesn't account for the repetitive nature of self-loops.",
+        "c": "Correct. The correct construction is: incoming + self-loop* + outgoing. This represents: entering the state (incoming), potentially repeating the self-loop zero or more times (self-loop*), then exiting the state (outgoing). The star operation on the self-loop captures the possibility of staying in the state for multiple iterations.",
+        "d": "Incorrect. The order is important - you must first enter the state before repeating the self-loop."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "If an NFA has multiple transitions between the same pair of states after eliminating an intermediate state, how are these handled in the regular expression?",
+      "answers": {
+        "a": "Only the first transition is kept, others are discarded",
+        "b": "The transitions are concatenated in sequence",
+        "c": "The transitions are combined using the union operator (|) to represent alternative routes",
+        "d": "Each transition creates a separate regular expression"
+      },
+      "explanations": {
+        "a": "Incorrect. All valid transitions must be preserved to maintain language equivalence.",
+        "b": "Incorrect. Concatenation would change the language semantics.",
+        "c": "Correct. Multiple transitions between the same states are combined using the union operator (|). This represents that any of the alternative paths can be taken. For example, if eliminating a state creates both 'a' and 'b' transitions from state p to state q, the result is 'a|b'.",
+        "d": "Incorrect. Multiple transitions between the same states are combined into a single expression."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why might different elimination orders for the same NFA produce regular expressions that look different but are equivalent?",
+      "answers": {
+        "a": "Different orders create different languages, so the expressions are not actually equivalent",
+        "b": "The algorithm is non-deterministic and produces random results",
+        "c": "Different orders apply algebraic operations in different sequences, creating different but equivalent expressions",
+        "d": "Only one elimination order is correct; others produce incorrect results"
+      },
+      "explanations": {
+        "a": "Incorrect. Different elimination orders always preserve the same language.",
+        "b": "Incorrect. The algorithm is deterministic for each given elimination order.",
+        "c": "Correct. Different elimination orders can produce syntactically different regular expressions that are semantically equivalent (recognize the same language). This occurs because algebraic operations like union and concatenation can be applied in different sequences, leading to different but equivalent final forms. Both expressions describe the same set of strings.",
+        "d": "Incorrect. Multiple elimination orders can produce correct but different-looking results."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In terms of computational complexity, what is a significant challenge when converting large NFAs to regular expressions using state elimination?",
+      "answers": {
+        "a": "The algorithm cannot handle NFAs with more than 10 states",
+        "b": "The resulting regular expression can grow exponentially in size relative to the NFA",
+        "c": "The conversion process requires infinite time for any NFA with loops",
+        "d": "State elimination can only work on deterministic finite automata"
+      },
+      "explanations": {
+        "a": "Incorrect. The algorithm can handle NFAs of any size, though complexity may grow.",
+        "b": "Correct. A major complexity challenge is that the resulting regular expression can grow exponentially with respect to the size of the original NFA. As states are eliminated, the expressions on transitions can become increasingly complex, leading to very long final expressions even for relatively small automata. This is why strategic elimination ordering is important.",
+        "c": "Incorrect. The algorithm always terminates in finite time for any finite NFA.",
+        "d": "Incorrect. State elimination works on both deterministic and nondeterministic finite automata."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What theoretical principle ensures that the state elimination algorithm will always produce a regular expression that recognizes exactly the same language as the original NFA?",
+      "answers": {
+        "a": "The Church-Turing thesis",
+        "b": "The pumping lemma for regular languages",
+        "c": "The equivalence theorem between finite automata and regular expressions",
+        "d": "The minimization theorem for finite automata"
+      },
+      "explanations": {
+        "a": "Incorrect. The Church-Turing thesis relates to computational equivalence, not specifically to regular languages.",
+        "b": "Incorrect. The pumping lemma is used to prove languages are not regular, not to guarantee conversion correctness.",
+        "c": "Correct. The equivalence theorem between finite automata and regular expressions guarantees that any language accepted by an NFA can be expressed as a regular expression, and vice versa. This fundamental result in formal language theory provides the theoretical foundation ensuring that state elimination preserves the exact language recognized by the original automaton.",
+        "d": "Incorrect. Minimization theorems relate to state reduction, not to NFA-regex equivalence."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Consider the broader implications: How does understanding NFA-to-regex conversion benefit practical applications in computer science?",
+      "answers": {
+        "a": "It only has theoretical value with no practical applications",
+        "b": "It helps in compiler design, text processing, and pattern matching by bridging visual and textual representations",
+        "c": "It is primarily useful for academic research in automata theory",
+        "d": "It only applies to very simple pattern matching problems"
+      },
+      "explanations": {
+        "a": "Incorrect. NFA-to-regex conversion has significant practical applications.",
+        "b": "Correct. NFA-to-regex conversion has significant practical value in computer science. It bridges the gap between visual automata representations (useful for design and understanding) and textual regex patterns (used in implementation). This is crucial for compiler lexical analysis, text editors, search tools, and any application requiring pattern matching, where developers need to translate conceptual patterns into executable code.",
+        "c": "Incorrect. The conversion has many practical applications beyond academic research.",
+        "d": "Incorrect. The conversion applies to complex pattern matching and language processing problems."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
   ]
 }
