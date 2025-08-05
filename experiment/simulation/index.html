@@ -1,13 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NFA to Regular Expression Conversion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <script src="mobile_detection.js"></script>
+  
 </head>
 <body>
-		<!-- Your code goes here-->
+  <div class="container">
+    <!-- Quick Guide Section -->
+    <div class="guide-container">
+      <div class="guide-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v4M12 16h.01"></path>
+        </svg>
+        <h2>Quick Guide</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-number purple">1</div>
+          <div class="step-text">Select an NFA to convert to Regular Expression</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number blue">2</div>
+          <div class="step-text">Click "Start Conversion" to begin the elimination process</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number green">3</div>
+          <div class="step-text">Click on intermediate states to eliminate them one by one</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number orange">4</div>
+          <div class="step-text">View the final Regular Expression after all eliminations</div>
+        </div>
+      </div>
+    </div>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <!-- Main Content Panels -->
+    <div class="main-panels">
+      <!-- Main Experiment Area -->
+      <div class="panel experiment-panel">
+        <!-- Controls (now horizontal at the top) -->
+        <div class="controls-container">
+          <div class="controls-title">Controls:</div>
+          <div class="horizontal-controls">
+            <button id="changeNfaBtn" onclick="changeNFA()" class="btn blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              Change NFA
+            </button>
+            <button id="startBtn" onclick="startConversion()" class="btn primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5,3 19,12 5,21"></polygon>
+              </svg>
+              Start Conversion
+            </button>
+            <button id="eliminateBtn" onclick="eliminateState()" class="btn success" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+              </svg>
+              Eliminate State
+            </button>
+            <button id="stepBackBtn" onclick="stepBack()" class="btn secondary" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"></path>
+              </svg>
+              Step Back
+            </button>
+            <button id="resetBtn" onclick="resetConversion()" class="btn danger" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </div>
+        
+        <div class="visualization-area">
+          <!-- NFA Canvas -->
+          <div class="canvas-container">
+            <h4>Current NFA State</h4>
+            <p class="canvas-instruction">Click on a state to select it for elimination</p>
+            <svg id="nfa-canvas" width="600" height="400"></svg>
+          </div>
+          
+          <!-- Regular Expression Display -->
+          <div class="regex-display">
+            <h4>Current Regular Expression</h4>
+            <div id="current-regex" class="regex-text">Click "Start Conversion" to begin</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step-by-Step Information Panel (Right Side) -->
+      <div class="panel steps-panel">
+        <h3 class="panel-title">Conversion Steps</h3>
+        <div class="steps-container">
+          <div id="steps-list" class="steps-list">
+            <div class="step-item initial">
+              <div class="step-header">
+                <span class="step-number">0</span>
+                <span class="step-title">Initial NFA</span>
+              </div>
+              <div class="step-content">
+                Original NFA ready for conversion
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-result">
+          <h4>Final Regular Expression</h4>
+          <div id="final-regex" class="final-regex-display">
+            Conversion not started
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Algorithm Info Button -->
+    <button id="algorithmBtn" class="floating-algorithm-btn" onclick="toggleAlgorithmInfo()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <span>Algorithm</span>
+    </button>
+
+    <!-- Algorithm Info Modal -->
+    <div id="algorithmModal" class="algorithm-modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>State Elimination Algorithm</h3>
+          <button onclick="toggleAlgorithmInfo()" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Goal:</strong> Convert NFA to Regular Expression by eliminating intermediate states</p>
+          
+          <div class="algorithm-steps">
+            <div class="algo-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>Preparation</h4>
+                <p>Ensure NFA has exactly one start state and one accept state. Add ε-transitions if needed.</p>
+              </div>
+            </div>
+            
+            <div class="algo-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>State Selection</h4>
+                <p>Choose an intermediate state to eliminate (neither start nor accept state).</p>
+              </div>
+            </div>
+            
+            <div class="algo-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>Transition Creation</h4>
+                <p>For each pair of states (p,q) where p→rᵢ→q, create new transition p→q with label combining all paths through rᵢ.</p>
+              </div>
+            </div>
+            
+            <div class="algo-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <h4>State Removal</h4>
+                <p>Remove the selected state and all its transitions from the automaton.</p>
+              </div>
+            </div>
+            
+            <div class="algo-step">
+              <span class="step-num">5</span>
+              <div class="step-content">
+                <h4>Repeat</h4>
+                <p>Continue until only start and accept states remain. The transition between them is your regular expression.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="formula-section">
+            <h4>Transition Formula:</h4>
+            <div class="formula">
+              R(p,q) = R(p,q) + R(p,rᵢ) · (R(rᵢ,rᵢ))* · R(rᵢ,q)
+            </div>
+            <p class="formula-note">Where rᵢ is the state being eliminated</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/interactive.js"></script>
 </body>
 </html>
