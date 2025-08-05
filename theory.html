@@ -1,0 +1,600 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'IIITH',
+        'phase': 'Testing',
+        'expName': 'CONVERSION FROM NFA TO RE',
+        'expShortName': 'conversion-nfa-re'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="conversion-nfa-re">
+    	<meta name="developer-institute" content="IIITH">
+    	<meta name="learning-unit" content="CONVERSION FROM NFA TO RE">
+    	<meta name="task-name" content="Theory">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="conversion-nfa-re" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] CONVERSION FROM NFA TO RE" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;CONVERSION FROM NFA TO RE&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2  current-item ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2 ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="simulation.html" class="p-2 ">
+                                      Simulation
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2  current-item ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2 ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="simulation.html" class="p-2 ">
+                        Simulation
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="conversion-from-nfa-to-re">Conversion from NFA to RE</h2>
+          
+            </div>
+              <h3 id="introduction">Introduction</h3>
+          <p>The equivalence between <strong>Nondeterministic Finite Automata (NFAs)</strong> and <strong>Regular Expressions (REs)</strong> represents a fundamental result in formal language theory, establishing that these two distinct representational models have identical expressive power for describing regular languages. While NFAs provide an intuitive visual approach through state diagrams and transition mechanisms, regular expressions offer a concise algebraic notation that captures the same language patterns through symbolic operations.</p>
+          <p>Understanding this equivalence is essential for computer science students as it bridges the conceptual gap between operational automata-based recognition and declarative pattern-based specification. The transformation from NFAs to regular expressions through state elimination demonstrates how visual state machines can be systematically converted into textual patterns, a process fundamental to compiler construction, lexical analysis, and text processing applications.</p>
+          <h3 id="nondeterministic-finite-automata-nfas">Nondeterministic Finite Automata (NFAs)</h3>
+          <h4 id="formal-definition">Formal Definition</h4>
+          <p>A Nondeterministic Finite Automaton is a 5-tuple M = (Q, Σ, δ, q₀, F) where:</p>
+          <ul>
+          <li><strong>Q</strong>: Finite set of states</li>
+          <li><strong>Σ</strong>: Input alphabet  </li>
+          <li><strong>δ</strong>: Transition function δ: Q × (Σ ∪ {ε}) → P(Q)</li>
+          <li><strong>q₀</strong>: Start state (q₀ ∈ Q)</li>
+          <li><strong>F</strong>: Set of accepting states (F ⊆ Q)</li>
+          </ul>
+          <h4 id="nfa-characteristics">NFA Characteristics</h4>
+          <p>NFAs exhibit several key properties that distinguish them from deterministic automata:</p>
+          <ul>
+          <li><strong>Nondeterminism</strong>: Multiple transitions possible from a single state on the same input</li>
+          <li><strong>Epsilon transitions</strong>: Transitions without consuming input symbols</li>
+          <li><strong>Multiple accept paths</strong>: A string is accepted if any computation path leads to an accepting state</li>
+          <li><strong>Computational flexibility</strong>: Can "guess" correct paths through nondeterministic choices</li>
+          </ul>
+          <h4 id="example-language-l--w--w-contains-ab-as-substring">Example: Language L = {w | w contains 'ab' as substring}</h4>
+          <p>For recognizing strings containing the substring 'ab':</p>
+          <ul>
+          <li><strong>States</strong>: {q₀, q₁, q₂} where q₀ is start, q₂ is accepting</li>
+          <li><strong>Key transitions</strong>:<ul>
+          <li>δ(q₀, a) = {q₀, q₁} - Stay in q₀ or advance to q₁</li>
+          <li>δ(q₁, b) = {q₂} - Complete 'ab' pattern</li>
+          <li>δ(q₂, a) = δ(q₂, b) = {q₂} - Accept all suffixes</li>
+          </ul>
+          </li>
+          </ul>
+          <h3 id="regular-expressions-res">Regular Expressions (REs)</h3>
+          <h4 id="formal-definition-1">Formal Definition</h4>
+          <p>Regular expressions are built recursively from:</p>
+          <ul>
+          <li><strong>∅</strong>: Empty set (no strings)</li>
+          <li><strong>ε</strong>: Empty string</li>
+          <li><strong>a</strong>: Single symbol (a ∈ Σ)</li>
+          <li><strong>Union</strong>: r₁ ∪ r₂ (either pattern)</li>
+          <li><strong>Concatenation</strong>: r₁r₂ (sequential patterns)</li>
+          <li><strong>Kleene Star</strong>: r* (zero or more repetitions)</li>
+          </ul>
+          <h4 id="regular-expression-operations">Regular Expression Operations</h4>
+          <ul>
+          <li><strong>Union (|)</strong>: Alternation between patterns</li>
+          <li><strong>Concatenation</strong>: Sequential composition of patterns</li>
+          <li><strong>Star (*)</strong>: Repetition operator (zero or more)</li>
+          <li><strong>Plus (+)</strong>: One or more repetitions (r⁺ = rr*)</li>
+          <li><strong>Optional (?)</strong>: Zero or one occurrence (r? = r ∪ ε)</li>
+          </ul>
+          <h4 id="example-language-l--w--w-contains-ab-as-substring-1">Example: Language L = {w | w contains 'ab' as substring}</h4>
+          <p>The same language expressed as regular expression: <strong>(a|b)<em>ab(a|b)</em></strong></p>
+          <ul>
+          <li><strong>(a|b)</strong>* - Any prefix of a's and b's</li>
+          <li><strong>ab</strong> - Required substring  </li>
+          <li><strong>(a|b)</strong>* - Any suffix of a's and b's</li>
+          </ul>
+          <h3 id="state-elimination-algorithm">State Elimination Algorithm</h3>
+          <h4 id="overview">Overview</h4>
+          <p>The state elimination method systematically converts an NFA to a regular expression by:</p>
+          <ol>
+          <li><strong>Preparation</strong>: Ensure single start and accept state</li>
+          <li><strong>Elimination</strong>: Remove intermediate states while preserving language</li>
+          <li><strong>Edge consolidation</strong>: Update transition labels with regex operations</li>
+          <li><strong>Final extraction</strong>: Derive final regular expression</li>
+          </ol>
+          <h4 id="detailed-state-elimination-process">Detailed State Elimination Process</h4>
+          <h5 id="step-1-nfa-preprocessing">Step 1: NFA Preprocessing</h5>
+          <ul>
+          <li><strong>Single start state</strong>: Add new start state if multiple initial states</li>
+          <li><strong>Single accept state</strong>: Add new accept state if multiple final states</li>
+          <li><strong>Epsilon elimination</strong>: Convert epsilon transitions to direct regex labels</li>
+          </ul>
+          <h5 id="step-2-state-selection-strategy">Step 2: State Selection Strategy</h5>
+          <p>Choose intermediate states for elimination in strategic order:</p>
+          <ul>
+          <li><strong>Non-critical states</strong>: States not heavily connected</li>
+          <li><strong>Minimal disruption</strong>: States requiring fewest new transitions</li>
+          <li><strong>Complexity management</strong>: Avoid creating overly complex intermediate expressions</li>
+          </ul>
+          <h5 id="step-3-transition-recalculation">Step 3: Transition Recalculation</h5>
+          <p>For each eliminated state s with:</p>
+          <ul>
+          <li><strong>Incoming transitions</strong>: {(pᵢ, aᵢ, s)} from states pᵢ</li>
+          <li><strong>Outgoing transitions</strong>: {(s, bⱼ, qⱼ)} to states qⱼ  </li>
+          <li><strong>Self-loop</strong>: (s, c, s) if present</li>
+          </ul>
+          <p>Create new transitions: <strong>(pᵢ, aᵢc*bⱼ, qⱼ)</strong> for all combinations</p>
+          <h5 id="step-4-regex-construction-rules">Step 4: Regex Construction Rules</h5>
+          <ul>
+          <li><strong>Sequential elimination</strong>: Concatenate transition labels</li>
+          <li><strong>Self-loop handling</strong>: Apply Kleene star to loop expressions</li>
+          <li><strong>Multiple paths</strong>: Unite parallel transitions with union operator</li>
+          <li><strong>Simplification</strong>: Apply algebraic laws to reduce complexity</li>
+          </ul>
+          <h3 id="theoretical-foundations">Theoretical Foundations</h3>
+          <h4 id="equivalence-theorem">Equivalence Theorem</h4>
+          <p><strong>Theorem</strong>: A language L is accepted by some NFA if and only if L can be expressed by some regular expression.</p>
+          <p>This equivalence is established through constructive proofs in both directions:</p>
+          <h4 id="nfa-to-re-construction-state-elimination">NFA to RE Construction (State Elimination)</h4>
+          <ul>
+          <li><strong>Systematic removal</strong>: Eliminate states while preserving accepted language</li>
+          <li><strong>Regex algebra</strong>: Combine transition labels using concatenation, union, and star</li>
+          <li><strong>Termination guarantee</strong>: Process always produces valid regular expression</li>
+          </ul>
+          <h4 id="re-to-nfa-construction-thompsons-algorithm">RE to NFA Construction (Thompson's Algorithm)</h4>
+          <ul>
+          <li><strong>Compositional building</strong>: Construct NFAs for basic patterns</li>
+          <li><strong>Recursive combination</strong>: Merge component NFAs using epsilon transitions</li>
+          <li><strong>Structural preservation</strong>: Maintain correspondence between expression and automaton</li>
+          </ul>
+          <h3 id="practical-implementation-details">Practical Implementation Details</h3>
+          <h4 id="edge-label-management">Edge Label Management</h4>
+          <p>During state elimination, transition labels evolve from simple symbols to complex expressions:</p>
+          <ul>
+          <li><strong>Initial labels</strong>: Single symbols or symbol sets</li>
+          <li><strong>Intermediate expressions</strong>: Unions and concatenations of subpatterns</li>
+          <li><strong>Final form</strong>: Complete regular expression capturing original language</li>
+          </ul>
+          <h4 id="complexity-considerations">Complexity Considerations</h4>
+          <ul>
+          <li><strong>Expression growth</strong>: Regex size can grow exponentially with automaton size</li>
+          <li><strong>Elimination order</strong>: Strategic state selection minimizes intermediate complexity</li>
+          <li><strong>Algebraic simplification</strong>: Apply regex laws to reduce expression size</li>
+          <li><strong>Practical limits</strong>: Large automata may produce unwieldy expressions</li>
+          </ul>
+          <h3 id="applications-and-examples">Applications and Examples</h3>
+          <h4 id="compiler-design">Compiler Design</h4>
+          <p>State elimination connects theoretical equivalence to practical applications:</p>
+          <ul>
+          <li><strong>Lexical analysis</strong>: Convert token patterns to finite automata</li>
+          <li><strong>Scanner generation</strong>: Transform regular expressions to efficient recognizers</li>
+          <li><strong>Optimization</strong>: Choose representation based on performance requirements</li>
+          </ul>
+          <h4 id="text-processing">Text Processing</h4>
+          <p>Regular expressions derived from automata serve various applications:</p>
+          <ul>
+          <li><strong>Pattern matching</strong>: Search and replace operations in text editors</li>
+          <li><strong>Input validation</strong>: Form field checking and data sanitization</li>
+          <li><strong>Log parsing</strong>: Extract structured information from unstructured text</li>
+          </ul>
+          <h4 id="formal-verification">Formal Verification</h4>
+          <p>The NFA-RE equivalence supports verification methodologies:</p>
+          <ul>
+          <li><strong>Property specification</strong>: Express system behaviors as regular patterns</li>
+          <li><strong>Model checking</strong>: Verify finite-state systems against regular properties</li>
+          <li><strong>Protocol analysis</strong>: Model communication patterns using automata</li>
+          </ul>
+          <h3 id="advanced-topics">Advanced Topics</h3>
+          <h4 id="optimization-strategies">Optimization Strategies</h4>
+          <p>Efficient state elimination requires careful consideration:</p>
+          <ul>
+          <li><strong>Elimination ordering</strong>: Minimize intermediate expression complexity</li>
+          <li><strong>Expression simplification</strong>: Apply algebraic laws during construction</li>
+          <li><strong>Caching</strong>: Reuse computed subexpressions when possible</li>
+          <li><strong>Heuristics</strong>: Use domain knowledge to guide elimination choices</li>
+          </ul>
+          <h4 id="alternative-conversion-methods">Alternative Conversion Methods</h4>
+          <p>Beyond state elimination, other approaches exist:</p>
+          <ul>
+          <li><strong>Matrix methods</strong>: Linear algebraic approach using transition matrices</li>
+          <li><strong>Brzozowski's algorithm</strong>: Reverse and determinize operations</li>
+          <li><strong>Derivatives</strong>: Symbolic differentiation of regular expressions</li>
+          </ul>
+          <h4 id="complexity-analysis">Complexity Analysis</h4>
+          <ul>
+          <li><strong>Space complexity</strong>: Regex size potentially exponential in NFA size</li>
+          <li><strong>Time complexity</strong>: Elimination algorithm polynomial in NFA size</li>
+          <li><strong>Practical bounds</strong>: Real-world expressions often remain manageable</li>
+          <li><strong>Trade-offs</strong>: Balance between compactness and computational efficiency</li>
+          </ul>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] CONVERSION FROM NFA TO RE" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;CONVERSION FROM NFA TO RE&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-conversion-nfa-re-iiith/plugins/svc-rating/index.js"></script><script type="module" src="/exp-conversion-nfa-re-iiith/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>
