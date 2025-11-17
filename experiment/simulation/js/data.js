@@ -237,6 +237,9 @@ const regexHelpers = {
   
   // Create union of two expressions
   union: function(expr1, expr2) {
+    // Normalize any comma-separated labels (e.g., "a,b") to proper union ("a|b")
+    expr1 = this.normalizeLabel(expr1);
+    expr2 = this.normalizeLabel(expr2);
     if (!expr1 || expr1 === regexOperators.EMPTY) return expr2;
     if (!expr2 || expr2 === regexOperators.EMPTY) return expr1;
     if (expr1 === expr2) return expr1;
@@ -246,6 +249,9 @@ const regexHelpers = {
   
   // Create concatenation of two expressions
   concat: function(expr1, expr2) {
+    // Normalize comma-separated labels before concatenation
+    expr1 = this.normalizeLabel(expr1);
+    expr2 = this.normalizeLabel(expr2);
     if (!expr1 || expr1 === regexOperators.EPSILON) return expr2;
     if (!expr2 || expr2 === regexOperators.EPSILON) return expr1;
     if (expr1 === regexOperators.EMPTY || expr2 === regexOperators.EMPTY) {
@@ -260,6 +266,8 @@ const regexHelpers = {
   
   // Create Kleene star of expression
   star: function(expr) {
+    // Normalize comma-separated labels before applying star
+    expr = this.normalizeLabel(expr);
     if (!expr || expr === regexOperators.EPSILON || expr === regexOperators.EMPTY) {
       return regexOperators.EPSILON;
     }
@@ -269,6 +277,21 @@ const regexHelpers = {
     
     const parenthesized = this.parenthesize(expr, '*');
     return `${parenthesized}*`;
+  }
+  ,
+  // Convert a comma separated label into a proper alternation (a|b|c).
+  // If label is already an expression containing '|' we leave it as-is.
+  normalizeLabel: function(label) {
+    if (!label || typeof label !== 'string') return label;
+    // If label already uses alternation | then assume it's a regex expression
+    if (label.includes('|')) return label;
+
+    // Split using comma and join with '|' to map 'a,b' -> 'a|b'
+    if (label.includes(',')) {
+      return label.split(',').map(p => p.trim()).filter(Boolean).join('|');
+    }
+
+    return label;
   }
 };
 

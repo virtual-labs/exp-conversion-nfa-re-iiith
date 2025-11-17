@@ -11,6 +11,8 @@
    - The current NFA description appears above the state diagram
    - Select an NFA that matches your learning level or specific interests
 
+   ![Procedure: full conversion example](images/procedure-conversion.svg)
+
 ### State Elimination Process
 
 3. **Initialize Conversion**
@@ -18,6 +20,8 @@
    - The system prepares the NFA for state elimination by identifying eligible intermediate states
    - Start and accept states are highlighted and cannot be eliminated
    - The current regular expression display shows "Conversion started"
+
+   <!-- retained theory image removed here; show procedure diagram instead -->
 
 4. **Select States for Elimination**
    - **Click directly on any intermediate state** in the diagram to select it for elimination
@@ -32,6 +36,8 @@
    - **Outgoing transitions** from the eliminated state are traced and highlighted
    - **Self-loops** on the eliminated state are incorporated using Kleene star operations
 
+   
+
 6. **Observe Regular Expression Construction**
    - The **"Current Regular Expression"** panel updates in real-time during elimination
    - New transition labels are constructed using regex operations:
@@ -39,6 +45,8 @@
      - **Union**: Multiple parallel paths between the same states
      - **Kleene Star**: Self-loops converted to repetition patterns
    - Expression simplification occurs automatically using algebraic laws
+
+   
 
 ### Controls
 
