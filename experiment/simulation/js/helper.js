@@ -311,7 +311,7 @@ const regexValidator = {
       
       currentStates.forEach(stateId => {
         nfa.transitions
-          .filter(t => t.from === stateId && t.label.split(',').includes(symbol))
+          .filter(t => t.from === stateId && t.label.split(/[,|]/).includes(symbol))
           .forEach(t => nextStates.add(t.to));
       });
       

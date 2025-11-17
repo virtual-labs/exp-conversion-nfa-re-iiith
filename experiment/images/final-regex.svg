@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="100" viewBox="0 0 560 100">
+  <style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}</style>
+  <rect x="8" y="8" width="544" height="84" rx="6" fill="#111827" opacity="0.03" />
+  <text x="20" y="32" font-weight="700">Final Regular Expression</text>
+  <text x="20" y="60" font-size="14">(a|b)* · a · b · (a|b)*</text>
+</svg>

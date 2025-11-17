@@ -26,19 +26,23 @@
       <div class="guide-steps">
         <div class="guide-step">
           <div class="step-number purple">1</div>
-          <div class="step-text">Select an NFA to convert to Regular Expression</div>
+          <div class="step-text">Choose and start : cycle NFAs with "Change NFA" then click "Start Conversion".</div>
         </div>
         <div class="guide-step">
-          <div class="step-number blue">2</div>
-          <div class="step-text">Click "Start Conversion" to begin the elimination process</div>
+          <div class="step-number green">2</div>
+          <div class="step-text">Select a state : click a non-start/non-accept state to highlight it.</div>
         </div>
         <div class="guide-step">
           <div class="step-number green">3</div>
-          <div class="step-text">Click on intermediate states to eliminate them one by one</div>
+          <div class="step-text">Eliminate : click "Eliminate State" to remove the selected state.</div>
         </div>
         <div class="guide-step">
-          <div class="step-number orange">4</div>
-          <div class="step-text">View the final Regular Expression after all eliminations</div>
+          <div class="step-number green">4</div>
+          <div class="step-text">Repeat : continue eliminating states until only start and accept remain.</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number orange">5</div>
+          <div class="step-text">Final regex & undo : check the "Final Regular Expression" panel; use "Step Back" or "Reset" to manage mistakes.</div>
         </div>
       </div>
     </div>
@@ -92,7 +96,7 @@
           <!-- NFA Canvas -->
           <div class="canvas-container">
             <h4>Current NFA State</h4>
-            <p class="canvas-instruction">Click on a state to select it for elimination</p>
+            <p class="canvas-instruction">Click a non-start, non-accept state to select it (it will be highlighted). After selecting, click "Eliminate State" to apply the elimination; use the "Step Back" button to undo and "Reset" to restart.</p>
             <svg id="nfa-canvas" width="600" height="400"></svg>
           </div>
           

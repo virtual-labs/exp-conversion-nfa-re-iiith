@@ -29,6 +29,8 @@ For recognizing strings containing the substring 'ab':
   - δ(q₁, b) = {q₂} - Complete 'ab' pattern
   - δ(q₂, a) = δ(q₂, b) = {q₂} - Accept all suffixes
 
+  ![NFA example](images/nfa-example.svg)
+
 ### Regular Expressions (REs)
 
 #### Formal Definition
@@ -55,6 +57,7 @@ The same language expressed as regular expression: **(a|b)*ab(a|b)***
 
 ### State Elimination Algorithm
 
+
 #### Overview
 The state elimination method systematically converts an NFA to a regular expression by:
 1. **Preparation**: Ensure single start and accept state
@@ -69,6 +72,8 @@ The state elimination method systematically converts an NFA to a regular express
 - **Single accept state**: Add new accept state if multiple final states
 - **Epsilon elimination**: Convert epsilon transitions to direct regex labels
 
+![Elimination incoming/outgoing](images/elimination-step1.svg)
+
 ##### Step 2: State Selection Strategy
 Choose intermediate states for elimination in strategic order:
 - **Non-critical states**: States not heavily connected
@@ -82,6 +87,8 @@ For each eliminated state s with:
 - **Self-loop**: (s, c, s) if present
 
 Create new transitions: **(pᵢ, aᵢc*bⱼ, qⱼ)** for all combinations
+
+![Elimination result](images/elimination-step2.svg)
 
 ##### Step 4: Regex Construction Rules
 - **Sequential elimination**: Concatenate transition labels
@@ -113,6 +120,8 @@ During state elimination, transition labels evolve from simple symbols to comple
 - **Initial labels**: Single symbols or symbol sets
 - **Intermediate expressions**: Unions and concatenations of subpatterns
 - **Final form**: Complete regular expression capturing original language
+
+![Final regular expression example](images/final-regex.svg)
 
 #### Complexity Considerations
 - **Expression growth**: Regex size can grow exponentially with automaton size
